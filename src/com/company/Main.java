@@ -1,28 +1,22 @@
 package com.company;
-import java.util.Scanner;
+
+import java.util.ArrayList;
+
 public class Main {
-    static Bank bank;
+  static ArrayList<Bank> banks = new ArrayList<>();
 
     public static void main(String[] args) {
         // write your code here
-        bank = new Bank("Lollandsbanken");
-        String name = getUserInput("Tast kundens navn:");
-       //Bed om kundens alder
-        int age = Integer.parseInt(getUserInput("Tast kundens alder:"));
+        System.out.println("1. main");
+        Bank bank1 = new Bank("Lollandsbanken", "Maribo");
+        Bank bank2 = new Bank("Danske Bank", "København");
+        banks.add(bank1);
+        banks.add(bank2);
 
-        //tilføj kunde til banken med det navn brugeren har skrevet i konsollen
-        bank.addCustomer(name, age);
-
-         System.out.println(bank.customers.get(0).getName()+": "+age);
+        bank1.startDialog();
+        System.out.println(bank1.customers);
 
     }
 
-    static String getUserInput(String msg) {
-        //Scanner intans og kald til nextLine
-        System.out.println(msg);
-        Scanner scan = new Scanner(System.in);
-        String input = scan.nextLine();
 
-        return input;
-    }
 }
